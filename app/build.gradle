@@ -1,0 +1,89 @@
+apply from: "../versions.gradle"
+
+apply plugin: "com.android.application"
+apply plugin: "org.jetbrains.kotlin.android"
+apply plugin: "kotlin-kapt"
+apply plugin: "dagger.hilt.android.plugin"
+
+android {
+    compileSdkVersion versions.android.compileSdk
+    buildToolsVersion versions.android.buildTools
+
+    defaultConfig {
+        applicationId "com.yasinskyi.android.edu2"
+        minSdkVersion versions.android.minSdk
+        targetSdkVersion versions.android.targetSdk
+        versionName versions.application.versionName
+        versionCode versions.application.versionCode
+
+        buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com\"")
+        buildConfigField("String", "API_KEY", "\"CREATE YOUR KEY\"")
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.jvmTarget
+        targetCompatibility versions.jvmTarget
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.jvmTarget
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    // jetpack
+    implementation libs.androidx.core.ktx
+
+    // jetpack arch
+    implementation libs.androidx.lifecycle
+
+    // jetpack ui
+    implementation libs.bundles.jetpack.ui
+
+    // material
+    implementation libs.material
+
+    // coroutines
+    implementation libs.bundles.coroutines
+
+    // di
+    implementation libs.hilt.core
+    kapt libs.hilt.compiler
+
+    // navigation
+    implementation libs.cicerone
+
+    // retrofit
+    implementation libs.bundles.retrofit
+    implementation libs.okhttp.logger
+
+    // parser
+    implementation libs.gson
+
+    // logging
+    implementation libs.timber
+
+    // database
+    implementation libs.room.core
+    kapt libs.room.compiler
+
+    // glide
+    implementation libs.glide.core
+    kapt libs.glide.compiler
+
+    // testing
+    testImplementation libs.junit.core
+    testImplementation libs.mockk
+    testImplementation libs.coroutines.test
+}

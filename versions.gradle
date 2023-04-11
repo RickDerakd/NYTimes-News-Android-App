@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath libs.androidGradle
+        classpath libs.hiltGradle
+    }
+}
+
+@SuppressWarnings("UnnecessaryQualifiedReference")
+private String _getBuildToolsVersion() {
+    return hasProperty("buildToolsVersion")
+            ? getProperty("buildToolsVersion")
+            : "${com.android.builder.core.ToolsRevisionUtils.DEFAULT_BUILD_TOOLS_REVISION}"
+}
+
+private String _getVersionName() {
+    return hasProperty("versionName") ? getProperty("versionName") : "offline"
+}
+
+private int _getVersionCode() {
+    return hasProperty("versionCode") ? getProperty("versionCode").toInteger() : 1
+}
+
+ext {
+    versions = [
+            jvmTarget      : 1.8,
+            application    : [
+                    versionName: "${_getVersionName()}",
+                    versionCode: _getVersionCode(),
+            ],
+            android        : [
+                    buildTools: "${_getBuildToolsVersion()}",
+                    compileSdk   : 33,
+                    minSdk       : 21,
+                    targetSdk    : 33,
+            ],
+    ]
+}

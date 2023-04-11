@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginLarge">48dp</dimen>
+    <dimen name="marginExtraWide">32dp</dimen>
+    <dimen name="marginWide">16dp</dimen>
+    <dimen name="marginHalf">8dp</dimen>
+    <dimen name="marginQuarter">4dp</dimen>
+
+    <dimen name="textBigSize">24sp</dimen>
+    <dimen name="textMediumSize">18sp</dimen>
+    <dimen name="textSmallSize">16sp</dimen>
+    
+    <dimen name="imageWidth">75dp</dimen>
+    <dimen name="imageHeight">85dp</dimen>
+
+    <dimen name="cornerRadius">16dp</dimen>
+</resources>

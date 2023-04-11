@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/marginHalf"
+    app:cardCornerRadius="@dimen/marginQuarter"
+    app:cardElevation="@dimen/marginQuarter">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/newsItemImage"
+            android:layout_width="@dimen/imageWidth"
+            android:layout_height="@dimen/imageHeight"
+            android:layout_margin="@dimen/marginWide"
+            android:backgroundTint="@color/gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/newsLink" />
+
+        <TextView
+            android:id="@+id/newsItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginWide"
+            android:textStyle="bold"
+            android:textSize="@dimen/textMediumSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/newsItemImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Interesting text" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/newsItemBarrier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="newsItemImage, newsItemTitle"/>
+
+        <TextView
+            android:id="@+id/newsItemDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginWide"
+            android:layout_marginTop="@dimen/marginWide"
+            android:layout_marginEnd="@dimen/marginWide"
+            android:textSize="@dimen/textMediumSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/newsItemBarrier"
+            tools:text="Very interesting text" />
+
+        <TextView
+            android:id="@+id/newsItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginWide"
+            android:layout_marginEnd="@dimen/marginExtraWide"
+            android:layout_marginBottom="@dimen/marginWide"
+            android:textSize="@dimen/textSmallSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/newsItemDescription"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

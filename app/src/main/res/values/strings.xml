@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NYTimes News</string>
+
+    <string name="unknownErrorMessage">Something strange happened :(</string>
+    <string name="noInternetConnectionMessage">There is no internet connection</string>
+    <string name="errorMessageTitle">Oops!</string>
+    <string name="ok">OK</string>
+    <string name="newsLink">Read more</string>
+    <string name="emptyNewsMessage">There\'s no news yet…</string>
+    <string name="retryButton">Retry</string>
+    <string name="retryMessage">Please, retry</string>
+</resources>
